@@ -10,7 +10,9 @@
         <file>media/huella.jpg</file>
         <file>media/reintentar.png</file>
         <file>media/icono.png</file>
+        <file>media/icons.ttf</file>
         <file>inicio.qml</file>
         <file>media/profile.jpg</file>
+        <file>media/ic_arrow_back.svg</file>
     </qresource>
 </RCC>

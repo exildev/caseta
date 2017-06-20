@@ -52,6 +52,25 @@ Rectangle{
         visible: true
         SystemPalette {id: syspal}
         FontLoader{id:roboto; source: "media/Roboto-Light.ttf"; name:"Roboto Thin"}
+        FontLoader{id:icons; source: "media/icons.ttf"; name:"Material icons"}
+
+        Rectangle{
+            id:back
+            width: 32
+            height: 32
+            color:"#e1e1e1"
+            border.color: syspal.dark
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.margins: 3
+
+            Image {
+                source: "media/ic_arrow_back.svg"
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectCrop
+                anchors.margins: 1
+            }
+        }
 
         Rectangle{
             id:perfilContainer
@@ -122,18 +141,19 @@ Rectangle{
             Rectangle{
                 id:huellaContainer
                 width: 640
-                height: 200
+                height: 90
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: perfilContainer.bottom
-                anchors.topMargin: 20
+                anchors.topMargin: 50
                 color:"#fff"
                 Rectangle{
                     id: huella
                     anchors.right: parent.right
                     height: parent.height
-                    width: 140
+                    width: 0
                     border.color: syspal.dark
                     color: "#fff"
+                    visible: false
                     Image {
                         source: "media/huella.png"
                         anchors.fill: parent
@@ -149,9 +169,9 @@ Rectangle{
                     border.color: syspal.dark
                     anchors.left: parent.left
                     anchors.right: huella.left
-                    anchors.margins: 3
+
                     Text{
-                        text: "Coloque su dedo en el huellero"
+                        text: "Marcar salida"
                         anchors.centerIn: parent
                         font.pointSize: 27
                         font.family: roboto.name

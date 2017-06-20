@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets svg multimedia
 
 
 #LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\DPFPApi.lib"
