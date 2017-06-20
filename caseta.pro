@@ -3,10 +3,10 @@ TEMPLATE = app
 QT += qml quick widgets
 
 
-LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\DPFPApi.lib"
-LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\DPFpUI.lib"
-LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\dpHFtrEx.lib"
-LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\dpHMatch.lib"
+#LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\DPFPApi.lib"
+#LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\DPFpUI.lib"
+#LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\dpHFtrEx.lib"
+#LIBS += "C:\Program Files\DigitalPersona\One Touch SDK\C-C++\Lib\win32\dpHMatch.lib"
 
 
 SOURCES += main.cpp \
@@ -17,9 +17,9 @@ SOURCES += main.cpp \
     controllers/rawdata.cpp \
     controllers/loginapp.cpp \
     controllers/abratractapp.cpp \
-    qdpwin/qdpwin.cpp \
-    qdpwin/qenrollment.cpp \
-    qdpwin/qvalidation.cpp \
+    #qdpwin/qdpwin.cpp \
+    #qdpwin/qenrollment.cpp \
+    #qdpwin/qvalidation.cpp \
     mainwindow.cpp
 
 RESOURCES += qml.qrc
@@ -38,10 +38,10 @@ HEADERS += \
     controllers/rawdata.h \
     controllers/loginapp.h \
     controllers/abratractapp.h \
-    qdpwin/qdph.h \
-    qdpwin/qdpwin.h \
-    qdpwin/qenrollment.h \
-    qdpwin/qvalidation.h \
+    #qdpwin/qdph.h \
+    #qdpwin/qdpwin.h \
+    #qdpwin/qenrollment.h \
+    #qdpwin/qvalidation.h \
     mainwindow.h
 
 FORMS += \

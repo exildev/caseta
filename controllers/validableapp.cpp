@@ -4,7 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QApplication>
-#include "qdpwin/qdpwin.h"
+//#include "qdpwin/qdpwin.h"
 #include <QQuickItem>
 
 int i = 0;
@@ -14,9 +14,9 @@ ValidableApp::ValidableApp(MainWindow *window)
     QObject::connect(this->context,SIGNAL(getValidable(QString)),this,SLOT(getValidable(QString)));
     this->server = ServerManager::getInstance();
     this->data = NULL;
-    this->qdp = QDPWin::getInstance();
-    this->qdp->init();
-    this->qdp->configure(window, this);
+    //this->qdp = QDPWin::getInstance();
+    //this->qdp->init();
+    //this->qdp->configure(window, this);
 }
 
 ValidableApp::ValidableApp(){
@@ -26,12 +26,12 @@ ValidableApp::ValidableApp(){
 
 ValidableApp::~ValidableApp()
 {
-    delete this->qdp;
+    //delete this->qdp;
 }
 
-void ValidableApp::onCapture(FT_BYTE * template_data, int len){
+/*void ValidableApp::onCapture(FT_BYTE * template_data, int len){
     qDebug() << len;
-}
+}*/
 
 bool ValidableApp::validTemplate(int validable){
     QHash<QString, QString> *data = new QHash<QString, QString>();
@@ -45,6 +45,7 @@ bool ValidableApp::validTemplate(int validable){
 }
 
 void ValidableApp::getValidable(QString identificacion){
+    qDebug() << identificacion;
     QHash<QString, QString> *data = new QHash<QString, QString>();
     data->insert("identificacion",identificacion);
     this->sendPeticion("http://104.236.33.228:9009/asistencia/validable.json?", data, false);

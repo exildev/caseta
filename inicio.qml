@@ -9,6 +9,7 @@ Rectangle{
        id:inicio
        anchors.fill: parent
        color: "#D0DAD4"
+       visible: false
        Rectangle{
            width: 640
            height: 480
@@ -47,8 +48,8 @@ Rectangle{
         id:validable
         width: 800
         height: 600
-        color: "#D0DAD4"
-        visible: false
+        color: "#EEE"
+        visible: true
         SystemPalette {id: syspal}
         FontLoader{id:roboto; source: "media/Roboto-Light.ttf"; name:"Roboto Thin"}
 
@@ -56,7 +57,7 @@ Rectangle{
             id:perfilContainer
             width: 640
             height: 300
-            color:"#e1e1e1"
+            color:"#fff"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.topMargin: 20
@@ -117,63 +118,6 @@ Rectangle{
                     font.pointSize: 18
                     font.family: roboto.name
                 }
-                Text {
-                    id: materia1
-                    text: qsTr("Materia: ")
-                    anchors.top: cargo1.bottom
-                    anchors.topMargin: 15
-                    anchors.left: parent.left
-                    anchors.leftMargin: 16
-                    font.pointSize: 18
-                    font.family: roboto.name
-                }
-                Text {
-                    id: materia2
-                    text: qsTr("Anatomía")
-                    anchors.top: cargo1.bottom
-                    anchors.topMargin: 15
-                    anchors.left: materia1.right
-                    font.pointSize: 18
-                    font.family: roboto.name
-                }
-                Text {
-                    id: horario1
-                    text: qsTr("Horario: ")
-                    anchors.top: materia1.bottom
-                    anchors.topMargin: 15
-                    anchors.left: parent.left
-                    anchors.leftMargin: 16
-                    font.pointSize: 18
-                    font.family: roboto.name
-                }
-                Text {
-                    id: horario2
-                    text: qsTr("7:00AM - 8:40AM")
-                    anchors.top: materia1.bottom
-                    anchors.topMargin: 15
-                    anchors.left: materia1.right
-                    font.pointSize: 18
-                    font.family: roboto.name
-                }
-                Text {
-                    id: curso1
-                    text: qsTr("Curso: ")
-                    anchors.top: horario1.bottom
-                    anchors.topMargin: 15
-                    anchors.left: parent.left
-                    anchors.leftMargin: 16
-                    font.pointSize: 18
-                    font.family: roboto.name
-                }
-                Text {
-                    id: curso2
-                    text: qsTr("9-A")
-                    anchors.top: horario1.bottom
-                    anchors.topMargin: 15
-                    anchors.left: curso1.right
-                    font.pointSize: 18
-                    font.family: roboto.name
-                }
             }
             Rectangle{
                 id:huellaContainer
@@ -182,7 +126,7 @@ Rectangle{
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: perfilContainer.bottom
                 anchors.topMargin: 20
-                color:"#e1e1e1"
+                color:"#fff"
                 Rectangle{
                     id: huella
                     anchors.right: parent.right

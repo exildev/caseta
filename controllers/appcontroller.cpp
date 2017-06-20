@@ -35,14 +35,15 @@ AppController *AppController::getInstance(){
 
 void AppController::startApp(QQmlApplicationEngine *engine){
     this->engine = engine;
-    this->component = new QQmlComponent(engine, QUrl(QStringLiteral("qrc:/login.qml")));
+    /*this->component = new QQmlComponent(engine, QUrl(QStringLiteral("qrc:/login.qml")));
     this->login_window = component->create();
     this->login_app = new LoginApp(this->login_window) ;
-    QObject::connect(this->login_app,SIGNAL(login_success()),this,SLOT(login_success()));
+    QObject::connect(this->login_app,SIGNAL(login_success()),this,SLOT(login_success()));*/
+    this->login_success();
 }
 
 void AppController::login_success(){
-    this->login_window->setProperty("visible", false);
+    //this->login_window->setProperty("visible", false);
     this->main_window = new MainWindow();
     this->main_window->show();
     this->validable_app = new ValidableApp(this->main_window);
