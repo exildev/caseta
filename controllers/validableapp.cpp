@@ -47,15 +47,16 @@ bool ValidableApp::validTemplate(int validable){
 void ValidableApp::getValidable(QString identificacion){
     qDebug() << identificacion;
     QHash<QString, QString> *data = new QHash<QString, QString>();
-    data->insert("identificacion",identificacion);
-    this->sendPeticion("http://104.236.33.228:9009/asistencia/validable.json?", data, false);
+    data->insert("q",identificacion);
+    this->sendPeticion("http://104.236.33.228:8010/recursos/empleado/list/?", data, false);
     if(this->data->getStatus() == 200){
+        qDebug() << this->data->getResponse();
         QJsonObject json = QJsonDocument::fromJson(this->data->getResponse().toUtf8()).object();
         QVariant returnedValue;
         QVariant list= json.toVariantMap();
         QMetaObject::invokeMethod(this->context,"renderValidables",
                                   Q_RETURN_ARG(QVariant,returnedValue),
-                                  Q_ARG(QVariant,list));
+                                  Q_ARG(QVariant,json));
     }else{
         qDebug() << this->data->getResponse();
     }

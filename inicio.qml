@@ -10,7 +10,8 @@ Rectangle{
        anchors.fill: parent
        color: "#D0DAD4"
        visible: false
-       Rectangle{
+       FocusScope{
+           id:input
            width: 640
            height: 480
            anchors.centerIn: parent
@@ -69,6 +70,15 @@ Rectangle{
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectCrop
                 anchors.margins: 1
+            }
+
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    validable.visible = false;
+                    inicio.visible = true;
+                    input.forceActiveFocus()
+                }
             }
         }
 
@@ -188,7 +198,12 @@ Rectangle{
         property string texto: ""
         signal getValidable(string identificacion)
         function renderValidables(v){
-            console.log(v);
+            console.log(v.num_rows);
+            if(v.num_rows > 0){
+                var empleado = v.object_list[0];
+                nombreText.text = empleado.nombre + " " + empleado.apellidos
+                cargo2.text = empleado.cargo__nombre;
+            }
             inicio.focus = false
             inicio.visible = false
             validable.visible = true

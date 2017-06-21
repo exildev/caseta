@@ -23,7 +23,7 @@ void LoginApp::login(QString username, QString password){
     QHash<QString, QString> *data = new QHash<QString, QString>();
     data->insert("username",username);
     data->insert("password", password);
-    this->sendPeticion("http://104.236.33.228:9009/asistencia/session/login/", data, true);
+    this->sendPeticion("http://104.236.33.228:8010/usuarios/login/", data, true);
     if(this->data->getStatus() == 200){
         qDebug() << "sesion iniciada";
         emit login_success();
