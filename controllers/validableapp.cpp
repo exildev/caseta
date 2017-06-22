@@ -12,6 +12,7 @@ ValidableApp::ValidableApp(MainWindow *window)
 {
     this->context = window->getView()->rootObject()->findChild<QObject*>("funcs");
     QObject::connect(this->context,SIGNAL(getValidable(QString)),this,SLOT(getValidable(QString)));
+    QObject::connect(this->context,SIGNAL(marcarTurno(int)),this,SLOT(marcarTurno(int)));
     this->server = ServerManager::getInstance();
     this->data = NULL;
     //this->qdp = QDPWin::getInstance();
@@ -36,12 +37,16 @@ ValidableApp::~ValidableApp()
 bool ValidableApp::validTemplate(int validable){
     QHash<QString, QString> *data = new QHash<QString, QString>();
     data->insert("validable",QString::number(validable));
-    this->sendPeticion("http://104.236.33.228:9009/asistencia/template/valid/", data, true);
+    this->sendPeticion("http://104.236.33.228:8010/turno/marcar/valid/", data, true);
     if(this->data->getStatus() == 200){
         return true;
     }else{
         return false;
     }
+}
+
+void ValidableApp::marcarTurno(int pk){
+    qDebug() << pk;
 }
 
 void ValidableApp::getValidable(QString identificacion){

@@ -9,7 +9,7 @@ Rectangle{
        id:inicio
        anchors.fill: parent
        color: "#D0DAD4"
-       visible: false
+       visible: true
        FocusScope{
            id:input
            width: 640
@@ -31,7 +31,7 @@ Rectangle{
                height: 70
                color: "#999"
                Text {
-                   text: qsTr("SIGA LAS INSTRUCCIONES A CONTINUAIÓN")
+                   text: qsTr("SIGA LAS INSTRUCCIONES A CONTINUACIÓN")
                    anchors.centerIn: parent
                    font.pointSize: 20
                }
@@ -50,7 +50,7 @@ Rectangle{
         width: 800
         height: 600
         color: "#EEE"
-        visible: true
+        visible: false
         SystemPalette {id: syspal}
         FontLoader{id:roboto; source: "media/Roboto-Light.ttf"; name:"Roboto Thin"}
         FontLoader{id:icons; source: "media/icons.ttf"; name:"Material icons"}
@@ -180,6 +180,8 @@ Rectangle{
                     anchors.left: parent.left
                     anchors.right: huella.left
 
+
+
                     Text{
                         text: "Marcar salida"
                         anchors.centerIn: parent
@@ -197,6 +199,7 @@ Rectangle{
         objectName: "funcs"
         property string texto: ""
         signal getValidable(string identificacion)
+        signal marcarTurno(int pk)
         function renderValidables(v){
             console.log(v.num_rows);
             if(v.num_rows > 0){

@@ -18,6 +18,7 @@ public:
     ~ValidableApp();
 public slots:
     void getValidable(QString identificacion);
+    void marcarTurno(int pk);
     void onPush(int num){}
     void onVerify(bool){}
     //void onComplete(DATA_BLOB* template_data){}
