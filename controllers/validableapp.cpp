@@ -46,7 +46,14 @@ bool ValidableApp::validTemplate(int validable){
 }
 
 void ValidableApp::marcarTurno(int pk){
-    qDebug() << pk;
+    QString url = QString("http://104.236.33.228:8010/turno/marcar/%1/").arg(pk);
+    qDebug() << url;
+    QHash<QString, QString> *data = new QHash<QString, QString>();
+    this->sendPeticion(url, data, false);
+    qDebug() << this->data->getResponse();
+    if(this->data->getStatus() == 200){
+        qDebug() << "this->data->getResponse()";
+    }
 }
 
 void ValidableApp::getValidable(QString identificacion){

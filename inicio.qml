@@ -180,10 +180,15 @@ Rectangle{
                     anchors.left: parent.left
                     anchors.right: huella.left
 
-
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: {
+                            funcs.marcarTurno(funcs.pk);
+                        }
+                    }
 
                     Text{
-                        text: "Marcar salida"
+                        text: "Marcar"
                         anchors.centerIn: parent
                         font.pointSize: 27
                         font.family: roboto.name
@@ -198,6 +203,7 @@ Rectangle{
         id: funcs
         objectName: "funcs"
         property string texto: ""
+        property int pk: 0
         signal getValidable(string identificacion)
         signal marcarTurno(int pk)
         function renderValidables(v){
@@ -206,6 +212,7 @@ Rectangle{
                 var empleado = v.object_list[0];
                 nombreText.text = empleado.nombre + " " + empleado.apellidos
                 cargo2.text = empleado.cargo__nombre;
+                funcs.pk = empleado.id;
             }
             inicio.focus = false
             inicio.visible = false
